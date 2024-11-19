@@ -1,0 +1,5 @@
+AIzaSyBxwB5diHriTSExWkPicQ22WMGxd1cbR_c
+
+ricardroberg - z671jFmqwUiufynx
+
+mongodb+srv://ricardroberg:z671jFmqwUiufynx@cluster0.vylis.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
