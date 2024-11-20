@@ -7,9 +7,7 @@ export async function listarUsuarios(req, resp) {
 
 export async function usuarioPeloEmail(req, resp){
   const email = req.params.email; 
-  console.log("EMAIL ===> ", email)
   const usuarioPorEmail = await  getUsuarioPeloEmail(email); 
-  console.log("Usuário encontrado:", usuarioPorEmail); // Verifica o usuário encontrado
 
   if(usuarioPorEmail){
     resp.status(200).json(usuarioPorEmail);
