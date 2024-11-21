@@ -1,10 +1,31 @@
 import express from "express";
-import { listarPosts } from "../controllers/postsController.js";
+import multer from "multer";
+import {
+  adicionarNovoPost,
+  listarPosts,
+  uploadImagem,
+} from "../controllers/postsController.js";
+
+// linux ou mac não precisa do storage
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  }
+});
+
+const upload = multer({ dest: "./uploads" });
+// linux ou mac não precisa do storage
+// const upload = multer({ dest: "./uploads" });
 
 export const routes = (app) => {
   app.use(express.json());
-  
+
   app.get("/posts", listarPosts);
+  app.post("/posts", adicionarNovoPost);
+  app.post("/upload", upload.single("imagem"), uploadImagem);
 };
 
 // function buscarPostPorId(id) {
